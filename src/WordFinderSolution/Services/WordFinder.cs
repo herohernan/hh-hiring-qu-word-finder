@@ -11,6 +11,12 @@ namespace WordFinderSolution.Services
 
         public WordFinder(IEnumerable<string> matrix)
         {
+            // Prevalidations
+            if (matrix is null || matrix.Count() == 0 || matrix.First().Length == 0)
+                throw new ArgumentException("Matrix is empty", nameof(matrix));
+            if (matrix.Count() > 64 || matrix.First().Length > 64) 
+                throw new ArgumentException("Matrix is too big", nameof(matrix));
+
             this.matrix = matrix;
         }
 
@@ -39,7 +45,13 @@ namespace WordFinderSolution.Services
             FindHorizontally(wordstream, wordsFound);
             FindVertically(wordstream, wordsFound);
 
-            return wordsFound;
+            var result = wordsFound.GroupBy(word => word)
+                .OrderByDescending(group => group.Count())
+                .Select(group => group.Key)
+                .Take(10)
+                .ToArray();
+
+            return result;
         }
 
         private void FindVertically(IEnumerable<string> wordstream, List<string> wordsFound)
@@ -63,19 +75,19 @@ namespace WordFinderSolution.Services
                     for (int column = 0; column < matrixWidth; column++)
                     {
                         WordWasFound = IsWordFindHorizontally(row, column, word, wordsFound);
-                        if (WordWasFound)
-                            break;
+                        /*if (WordWasFound)
+                            break;*/
                     }
-                    if (WordWasFound)
-                        break;
+                    /*if (WordWasFound)
+                        break;*/
                 }
  
                 // Continue with the next word, each word should be found only once
-                if (WordWasFound)
+                /*if (WordWasFound)
                 {
                     WordWasFound = false;
                     continue;
-                }
+                }*/
             }
         }
 
