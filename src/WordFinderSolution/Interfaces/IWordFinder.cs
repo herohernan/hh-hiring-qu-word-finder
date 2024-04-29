@@ -1,4 +1,4 @@
-﻿namespace WordFinder.Interfaces
+﻿namespace WordFinderSolution.Interfaces
 {
     public interface IWordFinder
     {

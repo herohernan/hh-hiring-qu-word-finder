@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinder", "src\WordFinder\WordFinder.csproj", "{890B4D80-1892-4782-88A1-AE54AE8ECFBF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordFinder", "src\WordFinderSolution\WordFinder.csproj", "{890B4D80-1892-4782-88A1-AE54AE8ECFBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
